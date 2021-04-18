@@ -1,5 +1,5 @@
 module.exports = function(config) {
-  config.addPassthroughCopy("src");
+  config.addPassthroughCopy("dist");
   return  {
     dir: {
       input: "dist",
