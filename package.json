@@ -1,0 +1,26 @@
+{
+  "name": "jux-codes",
+  "version": "1.0.0",
+  "description": "Hola xd",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pintovillamar/jux-codes.git"
+  },
+  "keywords": [
+    "website"
+  ],
+  "author": "Jux, Demon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pintovillamar/jux-codes/issues"
+  },
+  "homepage": "https://github.com/pintovillamar/jux-codes#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
