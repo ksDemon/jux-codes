@@ -75,7 +75,7 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     textSize(width / 40);
     textAlign(CENTER, CENTER);
-  }
+}
 
   
  
