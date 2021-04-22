@@ -28,8 +28,6 @@ function setup() {
   ng2 = random(-3, 3)
   nb2 = random(-3, 3)
   k = 1
-  ro = 1
-  fase = 0
 }
 
 function draw() {
