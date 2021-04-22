@@ -27,6 +27,7 @@ function setup() {
   nr2 = random(-3, 3)
   ng2 = random(-3, 3)
   nb2 = random(-3, 3)
+  k = 1
 }
 
 function draw() {
@@ -58,24 +59,73 @@ function draw() {
     
     c1 = color(r, g, b)
     c2 = color(r2, g2, b2)
+    k = 1 + 2*(1 + width/2 - Math.abs(mouseX-width/2))/width
+    textSize(k*width / 40);
     
     setGradient(0, 0, width, height, c1, c2);
-    stroke("white")
-    fill("white")
+    
     let time = millis();
-    rectMode(CENTER)
     
     translate(width / 2, height / 2);
+    
+    
+    translate(300*(mouseX-width/2)/windowWidth, 300*(mouseY-height/2)/windowHeight)
     rotate(time / 1000);
-    text('puto el que lea', 0, 0);
+    stroke(invert(c1))
+    fill(invert(c1))
+    text("Demon Rules", 0, 0)
+
+    rotate(-time / 1000);
+    translate(-100*(mouseX-width/2)/windowWidth, -100*(mouseY-height/2)/windowHeight)
+    rotate(time / 1000);
+    stroke(invert(c2))
+    fill(invert(c2))
+    text('Demon Rules', 0, 0);
+
+    rotate(-time / 1000);
+    translate(-100*(mouseX-width/2)/windowWidth, -100*(mouseY-height/2)/windowHeight)
+    rotate(time / 1000);
+    stroke("white")
+    fill("white")
+    text('Demon Rules', 0, 0);
+    
+    
 
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    textSize(width / 40);
+    textSize(k*width / 40);
     textAlign(CENTER, CENTER);
 }
 
-  
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function invert(rgb) {
+  rgb = [].slice.call(arguments).join(",").replace(/rgb\(|\)|rgba\(|\)|\s/gi, '').split(',');
+  for (var i = 0; i < rgb.length; i++) rgb[i] = (i === 3 ? 1 : 255) - rgb[i];
+  return rgbToHex(rgb[0], rgb[1], rgb[2]);
+}
+
+function mouseClicked() {
+  r = random(255)
+  g = random(255)
+  b = random(255)
+  r2 = random(255)
+  g2 = random(255)
+  b2 = random(255)
+  nr = random(-3, 3)
+  ng = random(-3, 3)
+  nb = random(-3, 3)
+  nr2 = random(-3, 3)
+  ng2 = random(-3, 3)
+  nb2 = random(-3, 3)
+}
  
