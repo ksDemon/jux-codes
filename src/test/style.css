@@ -1,0 +1,62 @@
+body{
+  background-color: #000000;
+padding: 0px;
+margin: 0px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+p
+{
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  font-size: 500%;
+}
+
+#container {
+  perspective: 25px;
+  position: absolute;
+}
+
+#canvasDiv
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+}
+
+#gradient
+{
+z-index: -1;
+width: 100%;
+height: 100%;
+padding: 0px;
+margin: 0px;
+
+bottom: 0;
+left: 0;
+position: fixed;
+right: 0;
+top: 0;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+#rotation {
+  -webkit-animation: rotation 0.000005s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(359deg);
+  }
+}
+
+
