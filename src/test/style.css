@@ -1,22 +1,29 @@
 body{
   background-color: #000000;
-padding: 0px;
-margin: 0px;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-p
-{
-  font-family: 'Courier New', Courier, monospace;
-  color: white;
-  font-size: 500%;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #container {
-  perspective: 25px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  font-size: 500%;
   position: absolute;
+}
+#container2 {
+  font-family: 'Courier New', Courier, monospace;
+  position: absolute;
+  font-size: 500%;
+  color: black;
+}
+#container3 {
+  font-family: 'Courier New', Courier, monospace;
+  position: absolute;
+  font-size: 500%;
+  color: black;
 }
 
 #canvasDiv
@@ -47,7 +54,7 @@ background-size: cover;
 }
 
 #rotation {
-  -webkit-animation: rotation 0.000005s infinite linear;
+  -webkit-animation: rotation 4s infinite linear;
 }
 
 @-webkit-keyframes rotation {

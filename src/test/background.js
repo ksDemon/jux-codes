@@ -1,3 +1,6 @@
+refContainer2 = document.getElementById('container2')
+refContainer3 = document.getElementById('container3')
+
 var colors = new Array(
     [62, 35, 255],
     [60, 255, 60],
@@ -31,11 +34,13 @@ function updateGradient() {
     var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
     var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
     var color1 = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
+    refContainer2.style.color = invertColor(rgbToHex(r1, g1, b1))
 
     var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
     var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
     var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
     var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
+    refContainer3.style.color = invertColor(rgbToHex(r2, g2, b2))
 
     $('#gradient').css({
         background: "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
@@ -58,3 +63,41 @@ function updateGradient() {
 }
 
 setInterval(updateGradient, 10);
+
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function invertColor(hex) {
+    if (hex.indexOf('#') === 0) {
+        hex = hex.slice(1);
+    }
+    if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    }
+    if (hex.length !== 6) {
+        throw new Error('Invalid HEX color.');
+    }
+    var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+        g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+        b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+    return '#' + padZero(r) + padZero(g) + padZero(b);
+}
+
+function padZero(str, len) {
+    len = len || 2;
+    var zeros = new Array(len).join('0');
+    return (zeros + str).slice(-len);
+}
+
+onclick = function() {
+    colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+    colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+    console.log("hola")
+    
+}
