@@ -22,5 +22,8 @@
   "homepage": "https://github.com/pintovillamar/jux-codes#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
   }
 }
